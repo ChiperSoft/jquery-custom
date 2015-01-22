@@ -1,0 +1,29 @@
+{
+  "name": "jquery-custom",
+  "version": "0.0.1",
+  "description": "Node module for programatically generating custom jquery builds.",
+  "main": "index.js",
+  "bin": {
+    "jquery-custom": "./bin/jquery-custom"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bin": "./bin/jquery-custom"
+  },
+  "keywords": [
+    "jquery",
+    "builder",
+    "custom"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChiperSoft/jquery-custom.git"
+  },
+  "author": "Jarvis Badgley <chiper@chipersoft.com> (http://chipersoft.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "jquery.1": "^1.0.0",
+    "jquery.2": "^1.0.0",
+    "requirejs": "^2.1.15"
+  }
+}
