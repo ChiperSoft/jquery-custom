@@ -2,6 +2,7 @@
 var extend = require('util')._extend;
 var requirejs = require('requirejs');
 var fs = require( "fs" );
+var pjoin = require('path').join;
 
 var build = module.exports = function build (opts, cb) {
 	var options = {
@@ -45,14 +46,14 @@ var build = module.exports = function build (opts, cb) {
 
 	if (!options.src) {
 		switch (options.release) {
-		case 1:         options.src = __dirname + "/node_modules/jquery1/node_modules/jquery/src/"; break;
-		case 2:default: options.src = __dirname + "/node_modules/jquery2/node_modules/jquery/src/"; break;
+		case 1:         options.src = pjoin(__dirname, "node_modules/jquery1/node_modules/jquery/src/"); break;
+		case 2:default: options.src = pjoin(__dirname, "node_modules/jquery2/node_modules/jquery/src/"); break;
 		}
 	}
 
 	var version = options.version;
-	if (!version && fs.statSync(options.src + '/../package.json')) {
-		var pkg = require(options.src + '/../package.json');
+	if (!version && fs.statSync(pjoin(options.src, '/../package.json'))) {
+		var pkg = require(pjoin(options.src, '/../package.json'));
 		version = pkg.version;
 	}
 
@@ -80,11 +81,11 @@ var build = module.exports = function build (opts, cb) {
 		// Avoid breaking semicolons inserted by r.js
 		skipSemiColonInsertion: true,
 		wrap: {
-			startFile: options.src + "intro.js",
-			endFile: options.src + "outro.js"
+			startFile: pjoin(options.src, "intro.js"),
+			endFile: pjoin(options.src, "outro.js")
 		},
 		paths: {
-			sizzle: options.src + "sizzle/dist/sizzle"
+			sizzle: pjoin(options.src, "sizzle/dist/sizzle")
 		},
 		rawText: {},
 		onBuildWrite: convert
@@ -144,7 +145,7 @@ var build = module.exports = function build (opts, cb) {
 				// Exclude var modules as well
 				if ( module === "var" ) {
 					excludeList(
-						fs.readdirSync( options.src + prepend + module ), prepend + module
+						fs.readdirSync( pjoin(options.src, prepend, module) ), pjoin(prepend, module)
 					);
 					return;
 				}
@@ -189,7 +190,7 @@ var build = module.exports = function build (opts, cb) {
 					// These are the removable dependencies
 					// It's fine if the directory is not there
 					try {
-						excludeList( fs.readdirSync( options.src + module ), module );
+						excludeList( fs.readdirSync( pjoin(options.src, module) ), module );
 					} catch ( e ) {
 						
 					}
