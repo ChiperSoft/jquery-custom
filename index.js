@@ -46,8 +46,8 @@ var build = module.exports = function build (opts, cb) {
 
 	if (!options.src) {
 		switch (options.release) {
-		case 1:         options.src = pjoin(__dirname, "node_modules/jquery1/node_modules/jquery/src/"); break;
-		case 2:default: options.src = pjoin(__dirname, "node_modules/jquery2/node_modules/jquery/src/"); break;
+		case 1:         options.src = pjoin(__dirname, "node_modules/jquery.1/node_modules/jquery/src/"); break;
+		case 2:default: options.src = pjoin(__dirname, "node_modules/jquery.2/node_modules/jquery/src/"); break;
 		}
 	}
 
