@@ -1,6 +1,6 @@
 {
   "name": "jquery-custom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node module for programatically generating custom jquery builds.",
   "main": "index.js",
   "bin": {
