@@ -2,6 +2,8 @@ jquery-custom
 ===
 A node module for compiling custom jQuery builds programatically for use with local workflows (grunt and gulp). This package is a port of the jQuery project's custom grunt task, extracted to run without a grunt dependency.
 
+## WARNING: As of jQuery 1.12 and 2.2.0 the jQuery project is now using a completely different build process. As a result, this library no longer works, so I have hard capped the source downloader to jQuery 1.11.3 and 2.1.4, and removed support for jQuery 3.0 alphas until such a time that I can rewrite this builder for the newer versions.
+
 ##Installation
 
 NPM: `npm install jquery-custom`

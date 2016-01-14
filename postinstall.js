@@ -12,9 +12,9 @@ function fetch (pkg, ver, dest, callback) {
 		.on('end', function () { callback(); });
 }
 
-fetch('jquery', '1', path.resolve(__dirname, './jquery.1'), dlfinished);
-fetch('jquery', '2', path.resolve(__dirname, './jquery.2'), dlfinished);
-fetch('jquery', '3', path.resolve(__dirname, './jquery.3'), dlfinished);
+fetch('jquery', '<1.12', path.resolve(__dirname, './jquery.1'), dlfinished);
+fetch('jquery', '<2.2', path.resolve(__dirname, './jquery.2'), dlfinished);
+// fetch('jquery', '3', path.resolve(__dirname, './jquery.3'), dlfinished);
 
 
 
